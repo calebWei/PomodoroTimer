@@ -1,10 +1,10 @@
-module com.example.pomodorotimer {
+module caleb.pomodorotimer {
     requires javafx.controls;
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.example.pomodorotimer to javafx.fxml;
-    exports com.example.pomodorotimer;
+    opens caleb.pomodorotimer to javafx.fxml;
+    exports caleb.pomodorotimer;
 }

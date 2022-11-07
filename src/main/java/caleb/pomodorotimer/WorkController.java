@@ -3,7 +3,7 @@ package caleb.pomodorotimer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class StartController {
+public class WorkController {
     @FXML
     private Label welcomeText;
 

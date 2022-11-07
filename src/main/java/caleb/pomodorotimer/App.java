@@ -17,9 +17,9 @@ import java.io.IOException;
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/start.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/work.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 970, 650);
+        stage.setTitle("Pomodoro Timer");
         stage.setScene(scene);
         stage.show();
 

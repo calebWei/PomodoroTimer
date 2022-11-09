@@ -29,7 +29,6 @@ public class WorkController {
     }
 
     private void decrementTime(){
-        System.out.println(secondsToHMS(time));
         timerClock.setText(secondsToHMS(time));
         time--;
     }

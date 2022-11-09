@@ -7,12 +7,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="970.0" styleClass="root" stylesheets="@../css/Default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caleb.pomodorotimer.WorkController">
    <children>
-      <Label id="Timer" fx:id="timerClock" alignment="CENTER" layoutY="72.0" prefHeight="241.0" prefWidth="970.0" styleClass="Timer" text="30:00">
+      <Label id="Timer" fx:id="timerClock" alignment="CENTER" layoutY="72.0" prefHeight="241.0" prefWidth="970.0" styleClass="Timer" text="00:30:00">
          <font>
             <Font name="Dubai Regular" size="200" />
          </font>
       </Label>
-      <Rectangle fx:id="startButton" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="91.0" layoutX="178.0" layoutY="429.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gRectangle" width="228.0" />
+      <Rectangle fx:id="startButton" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="91.0" layoutX="178.0" layoutY="429.0" onMouseClicked="#onStartButton" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gRectangle" width="228.0" />
       <Label fx:id="startLabel" alignment="CENTER" layoutX="177.0" layoutY="446.0" mouseTransparent="true" prefHeight="58.0" prefWidth="228.0" styleClass="bLabel" text="Start" textFill="WHITE" />
       <Rectangle fx:id="skipButton" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="91.0" layoutX="563.0" layoutY="429.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gRectangle" width="228.0" />
       <Label alignment="CENTER" layoutX="563.0" layoutY="446.0" mouseTransparent="true" prefHeight="58.0" prefWidth="228.0" styleClass="bLabel" text="Skip" textFill="WHITE" />

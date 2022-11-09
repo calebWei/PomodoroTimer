@@ -1,25 +1,46 @@
 package caleb.pomodorotimer;
 
+import javafx.animation.FillTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-public class TimerController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class TimerController implements Initializable {
     @FXML
     private Label timerClock, startLabel, statLabel, settingLabel;
     @FXML
-    private Rectangle skipButton, statButton, settingButton;
+    private Rectangle skipButton, statButton, settingButton, background;
     private Timeline timeline;
-    private int studyTime = 1800, breakTime = 600;
+    private int studyTime = 1800, breakTime = 300;
     private int countTime = studyTime;
     private boolean isStudy = true;
+
     enum State {
         STOP, RUN, PAUSE
     }
     private State state = State.STOP;
+
+    /**
+     * Runs when scene starts
+     *
+     * @param url
+     * @param resourceBundle
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Sets the timerClock label at beginning
+        timerClock.setText(secondsToHMS(studyTime));
+    }
 
     /**
      * This method runs when the start button is pressed, depending on the state of the timer, the method will pause or
@@ -81,9 +102,15 @@ public class TimerController {
         // Depending on which mode the user is on, load either study time or break time.
         if (isStudy) {
             // Transition to study background
+            FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web("#252627"), Color.web("#F2EFE9"));
+            fillTransition.play();
+            timerClock.setTextFill(Paint.valueOf("BLACK"));
             countTime = studyTime;
         } else {
             // Transition to break background
+            FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web("#F2EFE9"), Color.web("#252627"));
+            fillTransition.play();
+            timerClock.setTextFill(Paint.valueOf("WHITE"));
             countTime = breakTime;
         }
         timerClock.setText(secondsToHMS(countTime));

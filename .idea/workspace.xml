@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b93a0b1-6088-493f-ab8f-55f8f9ef570d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/Default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/Dosis-VariableFont_wght.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/work.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/Dosis-Regular.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/caleb/pomodorotimer/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/caleb/pomodorotimer/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/caleb/pomodorotimer/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/caleb/pomodorotimer/WorkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/start.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/Default.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fonts/Dosis-VariableFont_wght.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/work.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/work.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,15 +36,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "list.type.of.created.stylesheet": "CSS"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Software engineering\PomodoroTimer\src\main\resources\fonts" />
@@ -62,7 +61,9 @@
       <option name="presentableId" value="Default" />
       <updated>1667797104730</updated>
       <workItem from="1667797107093" duration="823000" />
-      <workItem from="1667800419941" duration="3364000" />
+      <workItem from="1667800419941" duration="3406000" />
+      <workItem from="1667895274584" duration="670000" />
+      <workItem from="1667956109222" duration="1970000" />
     </task>
     <servers />
   </component>

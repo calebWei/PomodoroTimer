@@ -1,3 +1,26 @@
 .root {
     -fx-background-color: #F2EFE9;
 }
+
+.Timer {
+    -fx-font-family: "Dosis Regular";
+    -fx-font-size: 200px;
+}
+.bLabel{
+    -fx-font-family: "Dosis Regular";
+    -fx-font-size: 40px;
+}
+
+.gRectangle {
+    -fx-arc-height: 20;
+    -fx-arc-width: 20;
+    -fx-fill: #3BA99C;
+    -fx-stroke-width: 0;
+}
+
+.pRectangle {
+    -fx-arc-height: 20;
+    -fx-arc-width: 20;
+    -fx-fill: #E86A92;
+    -fx-stroke-width: 0;
+}

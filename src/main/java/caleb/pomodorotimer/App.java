@@ -21,7 +21,7 @@ public class App extends Application {
         // Get font
         Font.loadFont(getClass().getResourceAsStream("/fonts/Dosis-Regular.ttf"), 0);
         // Load first scene
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/work.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/timer.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 970, 650);
         stage.setTitle("Pomodoro Timer");
         // Load css stylesheet
@@ -39,7 +39,6 @@ public class App extends Application {
                     }
                 });
     }
-
     public static void main(String[] args) {
         launch();
     }

@@ -6,6 +6,12 @@
     -fx-font-family: "Dosis Regular";
     -fx-font-size: 200px;
 }
+
+.Timer:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
 .bLabel{
     -fx-font-family: "Dosis Regular";
     -fx-font-size: 40px;

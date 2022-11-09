@@ -3,33 +3,28 @@ package caleb.pomodorotimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class WorkController {
+public class TimerController {
     @FXML
     private Label timerClock, startLabel, statLabel, settingLabel;
     @FXML
     private Rectangle skipButton, statButton, settingButton;
     private Timeline timeline;
-    private int studyTime = 1800;
-    private int breakTime = 600;
+    private int studyTime = 1800, breakTime = 600;
     private int countTime = studyTime;
     private boolean isStudy = true;
-    Duration timeStamp;
-
     enum State {
-        STOP,
-        RUN,
-        PAUSE
+        STOP, RUN, PAUSE
     }
     private State state = State.STOP;
 
+    /**
+     * This method runs when the start button is pressed, depending on the state of the timer, the method will pause or
+     * unpause the timer.
+     */
     @FXML
     // Start the timer when the start button is pressed
     private void onStartButton() {
@@ -37,7 +32,6 @@ public class WorkController {
         switch(state) {
             case STOP:
                 // If the timer hasn't started, start the timer
-                System.out.println("start timer");
                 timeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> decrementTime()));
                 timeline.setCycleCount(countTime);
                 timeline.setOnFinished(event -> endTimer());
@@ -55,14 +49,12 @@ public class WorkController {
                 break;
             case RUN:
                 // If the timer is running, pause the timer
-                System.out.println("pause timer");
                 timeline.pause();
                 state = State.PAUSE;
                 startLabel.setText("Continue");
                 break;
             case PAUSE:
                 // If the timer is paused, continue the timer
-                System.out.println("start timer");
                 timeline.play();
                 state = State.RUN;
                 startLabel.setText("Pause");
@@ -70,11 +62,18 @@ public class WorkController {
         }
     }
 
+    /**
+     * This method decrements the time and updates the timerClock
+     */
     private void decrementTime(){
         countTime--;
         timerClock.setText(secondsToHMS(countTime));
     }
 
+    /**
+     * This method is called when the timerClock reaches 0, or when the skip button is pressed, it will stop the timer,
+     * and transition the mode to break or study mode by resetting the timer and changing the background.
+     */
     @FXML
     private void endTimer() {
         timeline.stop();
@@ -101,6 +100,13 @@ public class WorkController {
         settingLabel.setVisible(true);
     }
 
+    /**
+     * This method takes an integer representing the total amount of seconds, and returns a string format of HH:MM:SS
+     * that represents the time.
+     *
+     * @param timeInSeconds
+     * @return HH:MM:SS
+     */
     private String secondsToHMS(int timeInSeconds) {
         int hours = timeInSeconds / 3600;
         int minutes = (timeInSeconds % 3600) / 60;

@@ -6,7 +6,8 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -25,13 +26,14 @@ public class TimerController implements Initializable {
     private int countTime = studyTime;
     private boolean isStudy = true;
 
-    enum State {
+    private enum State {
         STOP, RUN, PAUSE
     }
     private State state = State.STOP;
+    private Media projectorSound;
 
     /**
-     * Runs when scene starts
+     * Runs when scene starts, set up fields
      *
      * @param url
      * @param resourceBundle
@@ -40,6 +42,8 @@ public class TimerController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Sets the timerClock label at beginning
         timerClock.setText(secondsToHMS(studyTime));
+        // Set up audio
+        projectorSound = new Media(getClass().getResource("/sounds/projector-button-push.mp3").toExternalForm());
     }
 
     /**
@@ -53,6 +57,9 @@ public class TimerController implements Initializable {
         switch(state) {
             case STOP:
                 // If the timer hasn't started, start the timer
+                // Play sound
+                MediaPlayer mediaPlayer = new MediaPlayer(projectorSound);
+                mediaPlayer.play();
                 timeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> decrementTime()));
                 timeline.setCycleCount(countTime);
                 timeline.setOnFinished(event -> endTimer());
@@ -97,6 +104,7 @@ public class TimerController implements Initializable {
      */
     @FXML
     private void endTimer() {
+        // stop the countdown
         timeline.stop();
         isStudy = !isStudy;
         // Depending on which mode the user is on, load either study time or break time.
@@ -140,4 +148,16 @@ public class TimerController implements Initializable {
         int seconds = timeInSeconds % 60;
         return String.format("%02d:%02d:%02d", hours, minutes, seconds);
     }
+
+    /**
+     * This method runs when skip button is pressed, unique to endTimer() because it plays a sound.
+     */
+    @FXML
+    private void onSkip() {
+        // Play sound
+        MediaPlayer mediaPlayer = new MediaPlayer(projectorSound);
+        mediaPlayer.play();
+        endTimer();
+    }
+
 }

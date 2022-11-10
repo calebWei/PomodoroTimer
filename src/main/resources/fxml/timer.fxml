@@ -15,7 +15,7 @@
       </Label>
       <Rectangle fx:id="startButton" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="91.0" layoutX="178.0" layoutY="429.0" onMouseClicked="#onStartButton" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gRectangle" width="228.0" />
       <Label fx:id="startLabel" alignment="CENTER" layoutX="177.0" layoutY="446.0" mouseTransparent="true" prefHeight="58.0" prefWidth="228.0" styleClass="bLabel" text="Start" textFill="WHITE" />
-      <Rectangle fx:id="skipButton" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="91.0" layoutX="563.0" layoutY="429.0" onMouseClicked="#endTimer" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gRectangle" width="228.0" />
+      <Rectangle fx:id="skipButton" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="91.0" layoutX="563.0" layoutY="429.0" onMouseClicked="#onSkip" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="gRectangle" width="228.0" />
       <Label alignment="CENTER" layoutX="563.0" layoutY="446.0" mouseTransparent="true" prefHeight="58.0" prefWidth="228.0" styleClass="bLabel" text="Skip" textFill="WHITE" />
       <Rectangle fx:id="statButton" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="57.0" layoutX="187.0" layoutY="557.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="pRectangle" width="210.0" />
       <Label fx:id="statLabel" alignment="CENTER" layoutX="187.0" layoutY="557.0" mouseTransparent="true" prefHeight="58.0" prefWidth="210.0" styleClass="bLabel" text="Statistics" textFill="WHITE" />

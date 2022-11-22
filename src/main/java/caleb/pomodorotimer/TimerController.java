@@ -28,6 +28,7 @@ public class TimerController implements Initializable {
     private Timeline timeline;
     private int studyTime, shortBreakTime, longBreakTime, longBreakInterval;
     private int countTime;
+    private String studyColor, shortColor, longColor, currentColor;
     private boolean isStudy = true;
     private int breakIntervalCnt = 0;
     private enum State {
@@ -60,6 +61,11 @@ public class TimerController implements Initializable {
             longBreakInterval = Integer.parseInt(prop.getProperty("longBreakInterval"));
             countTime = studyTime;
             timerClock.setText(secondsToHMS(countTime));
+            // read colour theme values
+            studyColor = prop.getProperty("studyColor");
+            shortColor = prop.getProperty("shortColor");
+            longColor = prop.getProperty("longColor");
+            currentColor = studyColor;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -130,10 +136,7 @@ public class TimerController implements Initializable {
         // Depending on which mode the user is on, load either study time or break time.
         if (isStudy) {
             // Transition to study background
-            FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web("#252627"), Color.web("#F2EFE9"));
-            fillTransition.play();
-            timerClock.setTextFill(Paint.valueOf("BLACK"));
-            countTime = studyTime;
+            setStudy();
         } else {
             // Transition to break background, based on longBreakInterval (-1 means no long breaks)
             if (longBreakInterval == -1) {
@@ -184,25 +187,38 @@ public class TimerController implements Initializable {
     }
 
     /**
+     * This method transitions the scene to start of study time
+     */
+    private void setStudy() {
+        FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web(currentColor), Color.web(studyColor));
+        fillTransition.play();
+        timerClock.setTextFill(Paint.valueOf("BLACK"));
+        countTime = studyTime;
+        currentColor = studyColor;
+    }
+
+    /**
      * This method transitions the scene to start of short break
      */
     private void setShortBreak() {
-        FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web("#F2EFE9"), Color.web("#252627"));
+        FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web(currentColor), Color.web(shortColor));
         fillTransition.play();
         timerClock.setTextFill(Paint.valueOf("WHITE"));
         countTime = shortBreakTime;
         breakIntervalCnt++;
+        currentColor = shortColor;
     }
 
     /**
      * This method transitions the scene to start of long break
      */
     private void setLongBreak() {
-        FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web("#F2EFE9"), Color.web("#252627"));
+        FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web(currentColor), Color.web(longColor));
         fillTransition.play();
         timerClock.setTextFill(Paint.valueOf("WHITE"));
         countTime = longBreakTime;
         breakIntervalCnt = 0;
+        currentColor = longColor;
     }
 
 }

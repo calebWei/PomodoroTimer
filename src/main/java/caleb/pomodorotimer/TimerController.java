@@ -79,6 +79,7 @@ public class TimerController implements Initializable {
                 // Play sound
                 MediaPlayer mediaPlayer = new MediaPlayer(projectorSound);
                 mediaPlayer.play();
+                // start timer
                 timeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> decrementTime()));
                 timeline.setCycleCount(countTime);
                 timeline.setOnFinished(event -> endTimer());

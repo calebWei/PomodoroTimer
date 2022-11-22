@@ -31,11 +31,12 @@ public class TimerController implements Initializable {
     private String studyColor, shortColor, longColor, currentColor;
     private boolean isStudy = true;
     private int breakIntervalCnt = 0;
+    private int alarmBeeps;
     private enum State {
         STOP, RUN, PAUSE
     }
     private State state = State.STOP;
-    private Media projectorSound;
+    private Media projectorSound, alarmSound;
     private final Properties prop = new Properties();
 
     /**
@@ -50,7 +51,8 @@ public class TimerController implements Initializable {
         timerClock.setText(secondsToHMS(studyTime));
         // Set up audio
         projectorSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/projector-button-push.mp3")).toExternalForm());
-        // Set up config file for reading
+        alarmSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/alarm.mp3")).toExternalForm());
+        // Read config file
         try {
             FileInputStream config = new FileInputStream("src/main/resources/config.properties");
             prop.load(config);
@@ -60,6 +62,7 @@ public class TimerController implements Initializable {
             longBreakTime = Integer.parseInt(prop.getProperty("longBreakTime"));
             longBreakInterval = Integer.parseInt(prop.getProperty("longBreakInterval"));
             countTime = studyTime;
+            alarmBeeps = Integer.parseInt(prop.getProperty("alarmBeeps"));
             timerClock.setText(secondsToHMS(countTime));
             // read colour theme values
             studyColor = prop.getProperty("studyColor");
@@ -130,6 +133,10 @@ public class TimerController implements Initializable {
      */
     @FXML
     private void endTimer() {
+        // sound the alarm
+        MediaPlayer mediaPlayer = new MediaPlayer(alarmSound);
+        mediaPlayer.setCycleCount(alarmBeeps);
+        mediaPlayer.play();
         // stop the countdown
         timeline.stop();
         isStudy = !isStudy;

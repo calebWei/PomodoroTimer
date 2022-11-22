@@ -13,7 +13,11 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class TimerController implements Initializable {
@@ -22,7 +26,7 @@ public class TimerController implements Initializable {
     @FXML
     private Rectangle skipButton, statButton, settingButton, background;
     private Timeline timeline;
-    private int studyTime = 1800, breakTime = 300;
+    private int studyTime = 1800, shortBreakTime = 300, longBreakTime = 600;
     private int countTime = studyTime;
     private boolean isStudy = true;
 
@@ -44,6 +48,14 @@ public class TimerController implements Initializable {
         timerClock.setText(secondsToHMS(studyTime));
         // Set up audio
         projectorSound = new Media(getClass().getResource("/sounds/projector-button-push.mp3").toExternalForm());
+        // Set up config file for reading
+        try {
+            Properties prop = new Properties();
+            FileInputStream config = new FileInputStream("src/main/resources/config.properties");
+            prop.load(config);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -119,7 +131,7 @@ public class TimerController implements Initializable {
             FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web("#F2EFE9"), Color.web("#252627"));
             fillTransition.play();
             timerClock.setTextFill(Paint.valueOf("WHITE"));
-            countTime = breakTime;
+            countTime = shortBreakTime;
         }
         timerClock.setText(secondsToHMS(countTime));
 

@@ -25,7 +25,6 @@ public class App extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 970, 650);
         stage.setTitle("Pomodoro Timer");
         // Load css stylesheet
-        scene.getStylesheets().add("/css/Default.css");
         stage.setScene(scene);
         stage.show();
 

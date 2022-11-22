@@ -26,8 +26,8 @@ public class TimerController implements Initializable {
     @FXML
     private Rectangle skipButton, statButton, settingButton, background;
     private Timeline timeline;
-    private int studyTime = 1800, shortBreakTime = 300, longBreakTime = 600;
-    private int countTime = studyTime;
+    private int studyTime, shortBreakTime, longBreakTime;
+    private int countTime;
     private boolean isStudy = true;
 
     private enum State {
@@ -35,9 +35,10 @@ public class TimerController implements Initializable {
     }
     private State state = State.STOP;
     private Media projectorSound;
+    private Properties prop = new Properties();
 
     /**
-     * Runs when scene starts, set up fields
+     * Runs when scene starts, set up
      *
      * @param url
      * @param resourceBundle
@@ -50,9 +51,14 @@ public class TimerController implements Initializable {
         projectorSound = new Media(getClass().getResource("/sounds/projector-button-push.mp3").toExternalForm());
         // Set up config file for reading
         try {
-            Properties prop = new Properties();
             FileInputStream config = new FileInputStream("src/main/resources/config.properties");
             prop.load(config);
+            // Set up time values based on config
+            studyTime = Integer.parseInt(prop.getProperty("studyTime"));
+            shortBreakTime = Integer.parseInt(prop.getProperty("shortBreakTime"));
+            longBreakTime = Integer.parseInt(prop.getProperty("longBreakTime"));
+            countTime = studyTime;
+            timerClock.setText(secondsToHMS(countTime));
         } catch (IOException e) {
             e.printStackTrace();
         }

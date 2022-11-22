@@ -36,7 +36,7 @@ public class TimerController implements Initializable {
         STOP, RUN, PAUSE
     }
     private State state = State.STOP;
-    private Media projectorSound, alarmSound;
+    private MediaPlayer alarmPlayer, projectorPlayer;
     private final Properties prop = new Properties();
 
     /**
@@ -50,8 +50,10 @@ public class TimerController implements Initializable {
         // Sets the timerClock label at beginning
         timerClock.setText(secondsToHMS(studyTime));
         // Set up audio
-        projectorSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/projector-button-push.mp3")).toExternalForm());
-        alarmSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/alarm.mp3")).toExternalForm());
+        Media projectorSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/projector-button-push.mp3")).toExternalForm());
+        projectorPlayer = new MediaPlayer(projectorSound);
+        Media alarmSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/alarm.mp3")).toExternalForm());
+        alarmPlayer = new MediaPlayer(alarmSound);
         // Read config file
         try {
             FileInputStream config = new FileInputStream("src/main/resources/config.properties");
@@ -85,9 +87,11 @@ public class TimerController implements Initializable {
         switch (state) {
             case STOP -> {
                 // If the timer hasn't started, start the timer
-                // Play sound
-                MediaPlayer mediaPlayer = new MediaPlayer(projectorSound);
-                mediaPlayer.play();
+                // Play button sound
+                if (projectorPlayer.getStatus().equals(MediaPlayer.Status.PLAYING)) {
+                    projectorPlayer.stop();
+                }
+                projectorPlayer.play();
                 // start timer
                 timeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> decrementTime()));
                 timeline.setCycleCount(countTime);
@@ -134,9 +138,11 @@ public class TimerController implements Initializable {
     @FXML
     private void endTimer() {
         // sound the alarm
-        MediaPlayer mediaPlayer = new MediaPlayer(alarmSound);
-        mediaPlayer.setCycleCount(alarmBeeps);
-        mediaPlayer.play();
+        if (alarmPlayer.getStatus().equals(MediaPlayer.Status.PLAYING)) {
+            alarmPlayer.stop();
+        }
+        alarmPlayer.setCycleCount(alarmBeeps);
+        alarmPlayer.play();
         // stop the countdown
         timeline.stop();
         isStudy = !isStudy;
@@ -188,8 +194,10 @@ public class TimerController implements Initializable {
     @FXML
     private void onSkip() {
         // Play sound
-        MediaPlayer mediaPlayer = new MediaPlayer(projectorSound);
-        mediaPlayer.play();
+        if (projectorPlayer.getStatus().equals(MediaPlayer.Status.PLAYING)) {
+            projectorPlayer.stop();
+        }
+        projectorPlayer.play();
         endTimer();
     }
 

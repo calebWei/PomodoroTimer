@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
@@ -25,5 +26,14 @@ public class SettingsController {
         Scene scene = rectangle.getScene();
         // Change scene
         scene.setRoot(new FXMLLoader(App.class.getResource("/fxml/timer.fxml")).load());
+    }
+
+    /**
+     * Set color for settings background
+     *
+     * @param color for settings
+     */
+    public void setBackgroundColor(String color) {
+        background.setFill(Color.valueOf(color));
     }
 }

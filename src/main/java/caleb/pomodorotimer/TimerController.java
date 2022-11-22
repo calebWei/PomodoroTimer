@@ -6,6 +6,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -247,11 +248,18 @@ public class TimerController implements Initializable {
      */
     @FXML
     private void onSettings(MouseEvent event) throws IOException {
+        // Get class constructor and initiate
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/settings.fxml"));
+        Parent root = loader.load();
+        SettingsController settingsController = loader.getController();
+        // set background color for settings
+        settingsController.setBackgroundColor(currentColor);
+
         // Get scene
         Rectangle rectangle = (Rectangle) event.getSource();
         Scene scene = rectangle.getScene();
         // Change scene
-        scene.setRoot(new FXMLLoader(App.class.getResource("/fxml/settings.fxml")).load());
+        scene.setRoot(root);
     }
 
 }

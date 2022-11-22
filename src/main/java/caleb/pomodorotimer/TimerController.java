@@ -14,9 +14,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -35,20 +35,20 @@ public class TimerController implements Initializable {
     }
     private State state = State.STOP;
     private Media projectorSound;
-    private Properties prop = new Properties();
+    private final Properties prop = new Properties();
 
     /**
      * Runs when scene starts, set up
      *
-     * @param url
-     * @param resourceBundle
+     * @param url default
+     * @param resourceBundle default
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Sets the timerClock label at beginning
         timerClock.setText(secondsToHMS(studyTime));
         // Set up audio
-        projectorSound = new Media(getClass().getResource("/sounds/projector-button-push.mp3").toExternalForm());
+        projectorSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/projector-button-push.mp3")).toExternalForm());
         // Set up config file for reading
         try {
             FileInputStream config = new FileInputStream("src/main/resources/config.properties");
@@ -72,8 +72,8 @@ public class TimerController implements Initializable {
     // Start the timer when the start button is pressed
     private void onStartButton() {
 
-        switch(state) {
-            case STOP:
+        switch (state) {
+            case STOP -> {
                 // If the timer hasn't started, start the timer
                 // Play sound
                 MediaPlayer mediaPlayer = new MediaPlayer(projectorSound);
@@ -92,19 +92,19 @@ public class TimerController implements Initializable {
                 settingButton.setVisible(false);
                 settingLabel.setVisible(false);
                 startLabel.setText("Pause");
-                break;
-            case RUN:
+            }
+            case RUN -> {
                 // If the timer is running, pause the timer
                 timeline.pause();
                 state = State.PAUSE;
                 startLabel.setText("Continue");
-                break;
-            case PAUSE:
+            }
+            case PAUSE -> {
                 // If the timer is paused, continue the timer
                 timeline.play();
                 state = State.RUN;
                 startLabel.setText("Pause");
-                break;
+            }
         }
     }
 
@@ -157,7 +157,7 @@ public class TimerController implements Initializable {
      * This method takes an integer representing the total amount of seconds, and returns a string format of HH:MM:SS
      * that represents the time.
      *
-     * @param timeInSeconds
+     * @param timeInSeconds integer representing number of seconds
      * @return HH:MM:SS
      */
     private String secondsToHMS(int timeInSeconds) {

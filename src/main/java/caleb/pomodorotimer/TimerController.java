@@ -26,10 +26,10 @@ public class TimerController implements Initializable {
     @FXML
     private Rectangle skipButton, statButton, settingButton, background;
     private Timeline timeline;
-    private int studyTime, shortBreakTime, longBreakTime;
+    private int studyTime, shortBreakTime, longBreakTime, longBreakInterval;
     private int countTime;
     private boolean isStudy = true;
-
+    private int breakIntervalCnt = 0;
     private enum State {
         STOP, RUN, PAUSE
     }
@@ -57,6 +57,7 @@ public class TimerController implements Initializable {
             studyTime = Integer.parseInt(prop.getProperty("studyTime"));
             shortBreakTime = Integer.parseInt(prop.getProperty("shortBreakTime"));
             longBreakTime = Integer.parseInt(prop.getProperty("longBreakTime"));
+            longBreakInterval = Integer.parseInt(prop.getProperty("longBreakInterval"));
             countTime = studyTime;
             timerClock.setText(secondsToHMS(countTime));
         } catch (IOException e) {
@@ -133,11 +134,14 @@ public class TimerController implements Initializable {
             timerClock.setTextFill(Paint.valueOf("BLACK"));
             countTime = studyTime;
         } else {
-            // Transition to break background
-            FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web("#F2EFE9"), Color.web("#252627"));
-            fillTransition.play();
-            timerClock.setTextFill(Paint.valueOf("WHITE"));
-            countTime = shortBreakTime;
+            // Transition to break background, based on longBreakInterval (-1 means no long breaks)
+            if (longBreakInterval == -1) {
+                setShortBreak();
+            } else if (breakIntervalCnt == longBreakInterval){
+                setLongBreak();
+            } else {
+                setShortBreak();
+            }
         }
         timerClock.setText(secondsToHMS(countTime));
 
@@ -176,6 +180,28 @@ public class TimerController implements Initializable {
         MediaPlayer mediaPlayer = new MediaPlayer(projectorSound);
         mediaPlayer.play();
         endTimer();
+    }
+
+    /**
+     * This method transitions the scene to start of short break
+     */
+    private void setShortBreak() {
+        FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web("#F2EFE9"), Color.web("#252627"));
+        fillTransition.play();
+        timerClock.setTextFill(Paint.valueOf("WHITE"));
+        countTime = shortBreakTime;
+        breakIntervalCnt++;
+    }
+
+    /**
+     * This method transitions the scene to start of long break
+     */
+    private void setLongBreak() {
+        FillTransition fillTransition = new FillTransition(Duration.millis(1000), background, Color.web("#F2EFE9"), Color.web("#252627"));
+        fillTransition.play();
+        timerClock.setTextFill(Paint.valueOf("WHITE"));
+        countTime = longBreakTime;
+        breakIntervalCnt = 0;
     }
 
 }

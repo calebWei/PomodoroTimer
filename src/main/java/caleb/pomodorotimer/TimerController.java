@@ -4,8 +4,11 @@ import javafx.animation.FillTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -234,6 +237,21 @@ public class TimerController implements Initializable {
         countTime = longBreakTime;
         breakIntervalCnt = 0;
         currentColor = longColor;
+    }
+
+    /**
+     * switch scene to settings
+     *
+     * @param event triggered by clicking the rectangle button
+     * @throws IOException for load()
+     */
+    @FXML
+    private void onSettings(MouseEvent event) throws IOException {
+        // Get scene
+        Rectangle rectangle = (Rectangle) event.getSource();
+        Scene scene = rectangle.getScene();
+        // Change scene
+        scene.setRoot(new FXMLLoader(App.class.getResource("/fxml/settings.fxml")).load());
     }
 
 }

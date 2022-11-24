@@ -187,7 +187,7 @@ public class TimerController implements Initializable {
      * @param timeInSeconds integer representing number of seconds
      * @return HH:MM:SS
      */
-    private String secondsToHMS(int timeInSeconds) {
+    public static String secondsToHMS(int timeInSeconds) {
         int hours = timeInSeconds / 3600;
         int minutes = (timeInSeconds % 3600) / 60;
         int seconds = timeInSeconds % 60;

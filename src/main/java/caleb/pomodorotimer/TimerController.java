@@ -51,6 +51,8 @@ public class TimerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Disable the skip button
+        skipButton.setDisable(true);
         // Sets the timerClock label at beginning
         timerClock.setText(secondsToHMS(studyTime));
         // Set up audio

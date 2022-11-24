@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -25,7 +26,10 @@ public class App extends Application {
         // Load first scene
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/timer.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 970, 650);
+        // Set title and icon
         stage.setTitle("Pomodoro Timer");
+        Image icon = new Image(getClass().getResource("/images/icon.png").toExternalForm());
+        stage.getIcons().add(icon);
         // Load css stylesheet
         stage.setScene(scene);
         stage.show();

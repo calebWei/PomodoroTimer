@@ -19,6 +19,11 @@
     -fx-font-size: 40px;
 }
 
+.Polygon {
+    -fx-arc-width: 20;
+    -fx-arc-height: 20;
+}
+
 .gRectangle {
     -fx-arc-height: 20;
     -fx-arc-width: 20;
@@ -59,4 +64,8 @@
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
     -fx-cursor: hand;
+}
+
+.settingRectangle {
+    -fx-fill: #696969;
 }

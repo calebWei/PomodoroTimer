@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="970.0" stylesheets="@../css/Default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caleb.pomodorotimer.SettingsController">
@@ -9,5 +10,9 @@
       <Rectangle fx:id="background" arcHeight="5.0" arcWidth="5.0" fill="#f2efe9" height="650.0" mouseTransparent="true" stroke="BLACK" strokeType="INSIDE" width="970.0" />
       <Rectangle fx:id="returnButton" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="57.0" layoutX="380.0" layoutY="557.0" onMouseClicked="#onReturn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="pRectangle" width="210.0" />
       <Label alignment="CENTER" layoutX="380.0" layoutY="557.0" mouseTransparent="true" prefHeight="57.0" prefWidth="210.0" styleClass="rLabel" text="Return" textFill="WHITE" />
+      <Rectangle fx:id="returnButton1" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="100.0" layoutX="387.0" layoutY="140.0" onMouseClicked="#onReturn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="settingRectangle" width="250.0" />
+      <Label alignment="CENTER" layoutX="387.0" layoutY="140.0" mouseTransparent="true" prefHeight="37.0" prefWidth="250.0" styleClass="bLabel" text="Return" textFill="WHITE" />
+      <Polygon fill="WHITE" layoutX="608.0" layoutY="163.0" points="-24.0, 40.0, 22.0, 40.0, 0.0, 13.0" rotate="90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="4.0" />
+      <Label alignment="CENTER" layoutX="387.0" layoutY="182.0" mouseTransparent="true" prefHeight="37.0" prefWidth="250.0" styleClass="rLabel" text="Return" textFill="WHITE" />
    </children>
 </AnchorPane>

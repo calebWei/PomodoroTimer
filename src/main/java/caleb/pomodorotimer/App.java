@@ -16,9 +16,12 @@ import java.io.IOException;
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        // Make font look smooth
+        System.setProperty("prism.lcdtext", "false");
         // Get font
         Font.loadFont(getClass().getResourceAsStream("/fonts/Dosis-Regular.ttf"), 0);
         Font.loadFont(getClass().getResourceAsStream("/fonts/Montserrat-Regular.ttf"), 0);
+        Font.loadFont(getClass().getResourceAsStream("/fonts/Montserrat-Bold.ttf"), 0);
         // Load first scene
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/timer.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 970, 650);

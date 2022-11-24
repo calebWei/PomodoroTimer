@@ -14,6 +14,11 @@
     -fx-font-size: 40px;
 }
 
+.rLabel{
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 40px;
+}
+
 .gRectangle {
     -fx-arc-height: 20;
     -fx-arc-width: 20;

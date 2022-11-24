@@ -13,6 +13,8 @@ public class SettingsController {
     @FXML
     private Rectangle background;
 
+
+
     /**
      * switch scene to timer
      *

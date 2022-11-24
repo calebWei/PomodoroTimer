@@ -8,6 +8,12 @@
     -fx-scale-y: 1.05;
 }
 
+.tLabel {
+    -fx-font-family: "Montserrat";
+    -fx-font-weight: bold;
+    -fx-font-size: 45px;
+}
+
 .bLabel{
     -fx-font-family: "Montserrat";
     -fx-font-weight: bold;
@@ -19,9 +25,37 @@
     -fx-font-size: 40px;
 }
 
+.sbLabel {
+    -fx-font-family: "Montserrat";
+    -fx-font-weight: bold;
+    -fx-font-size: 35px;
+}
+
+.sLabel {
+    -fx-font-family: "Montserrat";
+    -fx-font-size: 35px;
+}
+
 .Polygon {
-    -fx-arc-width: 20;
-    -fx-arc-height: 20;
+    -fx-fill: white;
+}
+
+.Polygon:hover {
+    -fx-fill: #d0d0d0;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.Polygon:pressed {
+    -fx-fill: #e4e4e4;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.tRectangle {
+    -fx-arc-height: 10;
+    -fx-arc-width: 10;
+    -fx-fill: #1e90ff;
 }
 
 .gRectangle {
@@ -40,8 +74,8 @@
 
 .gRectangle:pressed {
     -fx-fill: #2EB4A7;
-    -fx-scale-x: 1.1;
-    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
     -fx-cursor: hand;
 }
 
@@ -61,8 +95,8 @@
 
 .pRectangle:pressed {
     -fx-fill: #C43173;
-    -fx-scale-x: 1.1;
-    -fx-scale-y: 1.1;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
     -fx-cursor: hand;
 }
 

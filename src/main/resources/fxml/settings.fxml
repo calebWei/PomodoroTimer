@@ -10,9 +10,44 @@
       <Rectangle fx:id="background" arcHeight="5.0" arcWidth="5.0" fill="#f2efe9" height="650.0" mouseTransparent="true" stroke="BLACK" strokeType="INSIDE" width="970.0" />
       <Rectangle fx:id="returnButton" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="57.0" layoutX="380.0" layoutY="557.0" onMouseClicked="#onReturn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="pRectangle" width="210.0" />
       <Label alignment="CENTER" layoutX="380.0" layoutY="557.0" mouseTransparent="true" prefHeight="57.0" prefWidth="210.0" styleClass="rLabel" text="Return" textFill="WHITE" />
-      <Rectangle fx:id="returnButton1" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="100.0" layoutX="387.0" layoutY="140.0" onMouseClicked="#onReturn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="settingRectangle" width="250.0" />
-      <Label alignment="CENTER" layoutX="387.0" layoutY="140.0" mouseTransparent="true" prefHeight="37.0" prefWidth="250.0" styleClass="bLabel" text="Return" textFill="WHITE" />
-      <Polygon fill="WHITE" layoutX="608.0" layoutY="163.0" points="-24.0, 40.0, 22.0, 40.0, 0.0, 13.0" rotate="90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="4.0" />
-      <Label alignment="CENTER" layoutX="387.0" layoutY="182.0" mouseTransparent="true" prefHeight="37.0" prefWidth="250.0" styleClass="rLabel" text="Return" textFill="WHITE" />
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="DODGERBLUE" height="100.0" layoutX="68.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="settingRectangle" width="250.0" />
+      <Label alignment="CENTER" layoutX="68.0" layoutY="93.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sbLabel" text="Study" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="68.0" layoutY="137.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sLabel" text="00:30" textFill="WHITE" />
+      <Polygon fill="WHITE" layoutX="99.0" layoutY="116.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="-90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Polygon fill="WHITE" layoutX="287.0" layoutY="116.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="DODGERBLUE" height="100.0" layoutX="68.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="settingRectangle" width="250.0" />
+      <Label alignment="CENTER" layoutX="68.0" layoutY="209.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sbLabel" text="Short" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="68.0" layoutY="253.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sLabel" text="00:05" textFill="WHITE" />
+      <Polygon fill="WHITE" layoutX="287.0" layoutY="232.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Polygon fill="WHITE" layoutX="99.0" layoutY="232.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="-90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="DODGERBLUE" height="100.0" layoutX="68.0" layoutY="326.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="settingRectangle" width="250.0" />
+      <Label alignment="CENTER" layoutX="68.0" layoutY="325.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sbLabel" text="Long" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="68.0" layoutY="369.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sLabel" text="00:10" textFill="WHITE" />
+      <Polygon fill="WHITE" layoutX="99.0" layoutY="348.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="-90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Polygon fill="WHITE" layoutX="287.0" layoutY="348.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="DODGERBLUE" height="100.0" layoutX="68.0" layoutY="442.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="settingRectangle" width="250.0" />
+      <Label alignment="CENTER" layoutX="68.0" layoutY="441.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sbLabel" text="Interval" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="68.0" layoutY="485.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sLabel" text="2" textFill="WHITE" />
+      <Polygon fill="WHITE" layoutX="287.0" layoutY="464.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Polygon fill="WHITE" layoutX="99.0" layoutY="464.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="-90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="DODGERBLUE" height="100.0" layoutX="360.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="settingRectangle" width="250.0" />
+      <Label alignment="CENTER" layoutX="360.0" layoutY="93.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sbLabel" text="Alarm" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="360.0" layoutY="137.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sLabel" text="Default" textFill="WHITE" />
+      <Polygon fill="WHITE" layoutX="579.0" layoutY="116.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Polygon fill="WHITE" layoutX="391.0" layoutY="116.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="-90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="DODGERBLUE" height="100.0" layoutX="360.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="settingRectangle" width="250.0" />
+      <Label alignment="CENTER" layoutX="360.0" layoutY="209.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sbLabel" text="Beeps" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="360.0" layoutY="253.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sLabel" text="5" textFill="WHITE" />
+      <Polygon fill="WHITE" layoutX="579.0" layoutY="232.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Polygon fill="WHITE" layoutX="391.0" layoutY="232.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="-90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Rectangle arcHeight="25.0" arcWidth="25.0" fill="DODGERBLUE" height="100.0" layoutX="651.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="settingRectangle" width="250.0" />
+      <Label alignment="CENTER" layoutX="651.0" layoutY="93.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sbLabel" text="Theme" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="651.0" layoutY="137.0" mouseTransparent="true" prefHeight="58.0" prefWidth="250.0" styleClass="sLabel" text="Default" textFill="WHITE" />
+      <Polygon fill="WHITE" layoutX="870.0" layoutY="116.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Polygon fill="WHITE" layoutX="682.0" layoutY="116.0" points="-24.0, 40.0, 22.0, 40.0, -1.0, 16.0" rotate="-90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="5.0" styleClass="Polygon" />
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="DODGERBLUE" height="58.0" layoutX="56.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="tRectangle" width="859.0" />
+      <Label layoutX="68.0" layoutY="19.0" mouseTransparent="true" prefHeight="66.0" prefWidth="250.0" styleClass="tLabel" text="Timer" textFill="WHITE" />
+      <Label layoutX="360.0" layoutY="19.0" mouseTransparent="true" prefHeight="66.0" prefWidth="250.0" styleClass="tLabel" text="Alarm" textFill="WHITE" />
+      <Label layoutX="651.0" layoutY="19.0" mouseTransparent="true" prefHeight="66.0" prefWidth="264.0" styleClass="tLabel" text="Customize" textFill="WHITE" />
    </children>
 </AnchorPane>

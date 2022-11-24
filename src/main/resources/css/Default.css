@@ -10,6 +10,7 @@
 
 .bLabel{
     -fx-font-family: "Montserrat";
+    -fx-font-weight: bold;
     -fx-font-size: 40px;
 }
 

@@ -1,5 +1,5 @@
 .Timer {
-    -fx-font-family: "Dosis Regular";
+    -fx-font-family: "Dosis";
     -fx-font-size: 200px;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .bLabel{
-    -fx-font-family: "Dosis Regular";
+    -fx-font-family: "Montserrat";
     -fx-font-size: 40px;
 }
 

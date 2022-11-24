@@ -56,6 +56,7 @@
     -fx-arc-height: 10;
     -fx-arc-width: 10;
     -fx-fill: #1e90ff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 25, 5, 5);
 }
 
 .gRectangle {
@@ -63,6 +64,7 @@
     -fx-arc-width: 20;
     -fx-fill: #3BA99C;
     -fx-stroke-width: 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 25, 5, 5);
 }
 
 .gRectangle:hover {
@@ -84,6 +86,7 @@
     -fx-arc-width: 20;
     -fx-fill: #E86A92;
     -fx-stroke-width: 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 25, 5, 5);
 }
 
 .pRectangle:hover {
@@ -102,4 +105,5 @@
 
 .settingRectangle {
     -fx-fill: #696969;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 0, 25, 5, 5);
 }

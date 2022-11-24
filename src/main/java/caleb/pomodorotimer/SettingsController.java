@@ -10,7 +10,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -23,13 +22,6 @@ public class SettingsController implements Initializable {
     @FXML
     private Label studyLabel, shortLabel, longLabel, intervalLabel, alarmLabel, beepsLabel, themeLabel;
     private final Properties prop = new Properties();
-
-    /**
-     * For exception signature
-     *
-     */
-    public SettingsController() throws FileNotFoundException {
-    }
 
     /**
      * Display current settings on start of scene

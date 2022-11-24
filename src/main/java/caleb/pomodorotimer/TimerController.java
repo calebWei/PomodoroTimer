@@ -250,6 +250,9 @@ public class TimerController implements Initializable {
      */
     @FXML
     private void onSettings(MouseEvent event) throws IOException {
+        // End any sound
+        alarmPlayer.stop();
+        projectorPlayer.stop();
         // Get class constructor and initiate
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/settings.fxml"));
         Parent root = loader.load();

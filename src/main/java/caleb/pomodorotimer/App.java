@@ -9,6 +9,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * This is the entry point of the JavaFX application, while you can change this class, it should
@@ -28,7 +29,7 @@ public class App extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 970, 650);
         // Set title and icon
         stage.setTitle("Pomodoro Timer");
-        Image icon = new Image(getClass().getResource("/images/icon.png").toExternalForm());
+        Image icon = new Image(Objects.requireNonNull(getClass().getResource("/images/icon.png")).toExternalForm());
         stage.getIcons().add(icon);
         // Load css stylesheet
         stage.setScene(scene);

@@ -10,11 +10,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
 public class SettingsController implements Initializable {
     @FXML
@@ -22,6 +23,13 @@ public class SettingsController implements Initializable {
     @FXML
     private Label studyLabel, shortLabel, longLabel, intervalLabel, alarmLabel, beepsLabel, themeLabel;
     private final Properties prop = new Properties();
+
+    /**
+     * For exception signature
+     *
+     */
+    public SettingsController() throws FileNotFoundException {
+    }
 
     /**
      * Display current settings on start of scene
@@ -45,6 +53,183 @@ public class SettingsController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Change alarm type
+     */
+    @FXML
+    private void incAlarm() {
+        //TODO changes alarm type
+    }
+
+    /**
+     * Change alarm type
+     */
+    @FXML
+    private void decAlarm() {
+        //TODO changes alarm type
+    }
+
+    /**
+     * Change theme
+     */
+    @FXML
+    private void incTheme() {
+        //TODO changes theme
+    }
+
+    /**
+     * Change alarm type
+     */
+    @FXML
+    private void decTheme() {
+        //TODO changes Theme
+    }
+
+    /**
+     * Increment the study timer by 1 minute.
+     */
+    @FXML
+    private void incStudy() throws IOException {
+        int time = Integer.parseInt(prop.getProperty("studyTime"));
+        time += 60;
+        FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
+        prop.setProperty("studyTime", String.valueOf(time));
+        prop.store(saveFile, null);
+        studyLabel.setText(TimerController.secondsToHMS(time));
+    }
+
+    /**
+     * Decrement the study timer by 1 minute.
+     */
+    @FXML
+    private void decStudy() throws IOException {
+        int time = Integer.parseInt(prop.getProperty("studyTime"));
+        if (time < 60) {
+            return;
+        }
+        time -= 60;
+        FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
+        prop.setProperty("studyTime", String.valueOf(time));
+        prop.store(saveFile, null);
+        studyLabel.setText(TimerController.secondsToHMS(time));
+    }
+
+    /**
+     * Increment the short break timer by 1 minute.
+     */
+    @FXML
+    private void incShort() throws IOException {
+        int time = Integer.parseInt(prop.getProperty("shortBreakTime"));
+        time += 60;
+        FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
+        prop.setProperty("shortBreakTime", String.valueOf(time));
+        prop.store(saveFile, null);
+        shortLabel.setText(TimerController.secondsToHMS(time));
+    }
+
+    /**
+     * Decrement the short break timer by 1 minute.
+     */
+    @FXML
+    private void decShort() throws IOException {
+        int time = Integer.parseInt(prop.getProperty("shortBreakTime"));
+        if (time < 60) {
+            return;
+        }
+        time -= 60;
+        FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
+        prop.setProperty("shortBreakTime", String.valueOf(time));
+        prop.store(saveFile, null);
+        shortLabel.setText(TimerController.secondsToHMS(time));
+    }
+
+    /**
+     * Increment the long break timer by 1 minute.
+     */
+    @FXML
+    private void incLong() throws IOException {
+        int time = Integer.parseInt(prop.getProperty("longBreakTime"));
+        time += 60;
+        FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
+        prop.setProperty("longBreakTime", String.valueOf(time));
+        prop.store(saveFile, null);
+        longLabel.setText(TimerController.secondsToHMS(time));
+    }
+
+    /**
+     * Decrement the long break timer by 1 minute.
+     */
+    @FXML
+    private void decLong() throws IOException {
+        int time = Integer.parseInt(prop.getProperty("longBreakTime"));
+        if (time < 60) {
+            return;
+        }
+        time -= 60;
+        FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
+        prop.setProperty("longBreakTime", String.valueOf(time));
+        prop.store(saveFile, null);
+        longLabel.setText(TimerController.secondsToHMS(time));
+    }
+
+    /**
+     * Increment the long break interval by 1.
+     */
+    @FXML
+    private void incInterval() throws IOException {
+        int interval = Integer.parseInt(prop.getProperty("longBreakInterval"));
+        interval++;
+        FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
+        prop.setProperty("longBreakInterval", String.valueOf(interval));
+        prop.store(saveFile, null);
+        intervalLabel.setText(String.valueOf(interval));
+    }
+
+    /**
+     * Decrement the long break interval by 1.
+     */
+    @FXML
+    private void decInterval() throws IOException {
+        int interval = Integer.parseInt(prop.getProperty("longBreakInterval"));
+        if (interval == 0) {
+            return;
+        }
+        interval--;
+        FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
+        prop.setProperty("longBreakInterval", String.valueOf(interval));
+        prop.store(saveFile, null);
+        intervalLabel.setText(String.valueOf(interval));
+    }
+
+    /**
+     * Increment the alarm beeps by 1.
+     */
+    @FXML
+    private void incBeep() throws IOException {
+        int beeps = Integer.parseInt(prop.getProperty("alarmBeeps"));
+        beeps++;
+        FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
+        prop.setProperty("alarmBeeps", String.valueOf(beeps));
+        prop.store(saveFile, null);
+        beepsLabel.setText(String.valueOf(beeps));
+    }
+
+    /**
+     * Decrement the alarm beeps by 1.
+     */
+    @FXML
+    private void decBeep() throws IOException {
+        int beeps = Integer.parseInt(prop.getProperty("alarmBeeps"));
+        if (beeps == 0) {
+            return;
+        }
+        beeps--;
+        FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
+        prop.setProperty("alarmBeeps", String.valueOf(beeps));
+        prop.store(saveFile, null);
+        beepsLabel.setText(String.valueOf(beeps));
     }
 
     /**

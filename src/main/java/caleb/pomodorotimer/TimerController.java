@@ -53,6 +53,7 @@ public class TimerController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // Disable the skip button
         skipButton.setDisable(true);
+        skipButton.setOpacity(0.8);
         // Sets the timerClock label at beginning
         timerClock.setText(secondsToHMS(studyTime));
         // Set up audio
@@ -106,6 +107,7 @@ public class TimerController implements Initializable {
                 state = State.RUN;
                 // Enable/Disable buttons
                 skipButton.setDisable(false);
+                skipButton.setOpacity(1);
                 statButton.setDisable(true);
                 statButton.setVisible(false);
                 statLabel.setVisible(false);
@@ -172,6 +174,7 @@ public class TimerController implements Initializable {
         state = State.STOP;
         startLabel.setText("Start");
         skipButton.setDisable(true);
+        skipButton.setOpacity(0.8);
         statButton.setDisable(false);
         statButton.setVisible(true);
         statLabel.setVisible(true);

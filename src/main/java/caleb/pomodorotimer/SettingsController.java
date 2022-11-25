@@ -185,7 +185,7 @@ public class SettingsController implements Initializable {
     @FXML
     private void decInterval() throws IOException {
         int interval = Integer.parseInt(prop.getProperty("longBreakInterval"));
-        if (interval == 0) {
+        if (interval == -1) {
             return;
         }
         interval--;

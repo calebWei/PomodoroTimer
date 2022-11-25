@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="970.0" stylesheets="@../css/Default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caleb.pomodorotimer.SettingsController">
    <children>
-      <Rectangle fx:id="background" arcHeight="5.0" arcWidth="5.0" fill="#f2efe9" height="650.0" mouseTransparent="true" stroke="BLACK" strokeType="INSIDE" width="970.0" />
+      <Rectangle fx:id="background" arcHeight="5.0" arcWidth="5.0" fill="#f2efe9" height="650.0" mouseTransparent="true" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="970.0" />
       <Rectangle fx:id="returnButton" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="57.0" layoutX="380.0" layoutY="557.0" onMouseClicked="#onReturn" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="pRectangle" width="210.0" />
       <Label alignment="CENTER" layoutX="380.0" layoutY="557.0" mouseTransparent="true" prefHeight="57.0" prefWidth="210.0" styleClass="rLabel" text="Return" textFill="WHITE" />
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="DODGERBLUE" height="100.0" layoutX="68.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="settingRectangle" width="250.0" />

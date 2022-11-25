@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="970.0" stylesheets="@../css/Default.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caleb.pomodorotimer.TimerController">
    <children>
-      <Rectangle fx:id="background" arcHeight="5.0" arcWidth="5.0" fill="#f2efe9" height="650.0" mouseTransparent="true" stroke="BLACK" strokeType="INSIDE" width="970.0" />
+      <Rectangle fx:id="background" arcHeight="5.0" arcWidth="5.0" fill="#f2efe9" height="650.0" mouseTransparent="true" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="970.0" />
       <Label id="Timer" fx:id="timerClock" alignment="CENTER" layoutX="118.0" layoutY="72.0" styleClass="Timer">
          <font>
             <Font name="Dubai Regular" size="200" />

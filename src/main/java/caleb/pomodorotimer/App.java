@@ -31,6 +31,8 @@ public class App extends Application {
         stage.setTitle("Pomodoro Timer");
         Image icon = new Image(Objects.requireNonNull(getClass().getResource("/images/icon.png")).toExternalForm());
         stage.getIcons().add(icon);
+        // Window set to not resizable
+        stage.setResizable(false);
         // Load css stylesheet
         stage.setScene(scene);
         stage.show();

@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -13,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -22,6 +25,7 @@ public class SettingsController implements Initializable {
     @FXML
     private Label studyLabel, shortLabel, longLabel, intervalLabel, alarmLabel, beepsLabel, themeLabel;
     private final Properties prop = new Properties();
+    private MediaPlayer tickPlayer;
 
     /**
      * Display current settings on start of scene
@@ -45,6 +49,9 @@ public class SettingsController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // Setup audio
+        Media tickSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/button-tick.mp3")).toExternalForm());
+        tickPlayer = new MediaPlayer(tickSound);
     }
 
     /**
@@ -53,6 +60,7 @@ public class SettingsController implements Initializable {
     @FXML
     private void incAlarm() {
         //TODO changes alarm type
+        playTickSound();
     }
 
     /**
@@ -61,6 +69,7 @@ public class SettingsController implements Initializable {
     @FXML
     private void decAlarm() {
         //TODO changes alarm type
+        playTickSound();
     }
 
     /**
@@ -69,6 +78,7 @@ public class SettingsController implements Initializable {
     @FXML
     private void incTheme() {
         //TODO changes theme
+        playTickSound();
     }
 
     /**
@@ -77,6 +87,7 @@ public class SettingsController implements Initializable {
     @FXML
     private void decTheme() {
         //TODO changes Theme
+        playTickSound();
     }
 
     /**
@@ -84,6 +95,7 @@ public class SettingsController implements Initializable {
      */
     @FXML
     private void incStudy() throws IOException {
+        playTickSound();
         int time = Integer.parseInt(prop.getProperty("studyTime"));
         time += 60;
         FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
@@ -97,6 +109,7 @@ public class SettingsController implements Initializable {
      */
     @FXML
     private void decStudy() throws IOException {
+        playTickSound();
         int time = Integer.parseInt(prop.getProperty("studyTime"));
         if (time < 60) {
             return;
@@ -113,6 +126,7 @@ public class SettingsController implements Initializable {
      */
     @FXML
     private void incShort() throws IOException {
+        playTickSound();
         int time = Integer.parseInt(prop.getProperty("shortBreakTime"));
         time += 60;
         FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
@@ -126,6 +140,7 @@ public class SettingsController implements Initializable {
      */
     @FXML
     private void decShort() throws IOException {
+        playTickSound();
         int time = Integer.parseInt(prop.getProperty("shortBreakTime"));
         if (time < 60) {
             return;
@@ -142,6 +157,7 @@ public class SettingsController implements Initializable {
      */
     @FXML
     private void incLong() throws IOException {
+        playTickSound();
         int time = Integer.parseInt(prop.getProperty("longBreakTime"));
         time += 60;
         FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
@@ -155,6 +171,7 @@ public class SettingsController implements Initializable {
      */
     @FXML
     private void decLong() throws IOException {
+        playTickSound();
         int time = Integer.parseInt(prop.getProperty("longBreakTime"));
         if (time < 60) {
             return;
@@ -171,6 +188,7 @@ public class SettingsController implements Initializable {
      */
     @FXML
     private void incInterval() throws IOException {
+        playTickSound();
         int interval = Integer.parseInt(prop.getProperty("longBreakInterval"));
         interval++;
         FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
@@ -184,6 +202,7 @@ public class SettingsController implements Initializable {
      */
     @FXML
     private void decInterval() throws IOException {
+        playTickSound();
         int interval = Integer.parseInt(prop.getProperty("longBreakInterval"));
         if (interval == -1) {
             return;
@@ -200,6 +219,7 @@ public class SettingsController implements Initializable {
      */
     @FXML
     private void incBeep() throws IOException {
+        playTickSound();
         int beeps = Integer.parseInt(prop.getProperty("alarmBeeps"));
         beeps++;
         FileOutputStream saveFile = new FileOutputStream("src/main/resources/config.properties");
@@ -213,6 +233,7 @@ public class SettingsController implements Initializable {
      */
     @FXML
     private void decBeep() throws IOException {
+        playTickSound();
         int beeps = Integer.parseInt(prop.getProperty("alarmBeeps"));
         if (beeps == 0) {
             return;
@@ -248,4 +269,13 @@ public class SettingsController implements Initializable {
         background.setFill(Color.valueOf(color));
     }
 
+    /**
+     * Play tick sound once for setting buttons.
+     */
+    private void playTickSound() {
+        if (tickPlayer.getStatus().equals(MediaPlayer.Status.PLAYING)) {
+            tickPlayer.stop();
+        }
+        tickPlayer.play();
+    }
 }

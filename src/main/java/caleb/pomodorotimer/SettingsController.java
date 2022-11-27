@@ -12,7 +12,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -25,7 +24,7 @@ public class SettingsController implements Initializable {
     private Label studyLabel, shortLabel, longLabel, intervalLabel, alarmLabel, beepsLabel, themeLabel;
     private final Properties prop = new Properties();
     private MediaPlayer tickPlayer;
-    private ArrayList<String> alarmType = new ArrayList<String>(Arrays.asList("Alarm1", "Alarm2"));
+    private final ArrayList<String> alarmType = new ArrayList<String>(Arrays.asList("Alarm1", "Alarm2", "Alarm3"));
 
     /**
      * Display current settings on start of scene

@@ -56,11 +56,6 @@ public class TimerController implements Initializable {
         skipButton.setOpacity(0.8);
         // Sets the timerClock label at beginning
         timerClock.setText(secondsToHMS(studyTime));
-        // Set up audio
-        Media projectorSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/projector-button-push.mp3")).toExternalForm());
-        projectorPlayer = new MediaPlayer(projectorSound);
-        Media alarmSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/alarm.mp3")).toExternalForm());
-        alarmPlayer = new MediaPlayer(alarmSound);
         // Read config file
         try {
             FileInputStream config = new FileInputStream("src/main/resources/config.properties");
@@ -78,6 +73,11 @@ public class TimerController implements Initializable {
             shortColor = prop.getProperty("shortColor");
             longColor = prop.getProperty("longColor");
             currentColor = studyColor;
+            // Set up audio
+            Media projectorSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/projector-button-push.mp3")).toExternalForm());
+            projectorPlayer = new MediaPlayer(projectorSound);
+            Media alarmSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/" + prop.getProperty("alarmType") + ".mp3")).toExternalForm());
+            alarmPlayer = new MediaPlayer(alarmSound);
         } catch (IOException e) {
             e.printStackTrace();
         }

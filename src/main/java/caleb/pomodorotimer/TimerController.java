@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 
 public class TimerController implements Initializable {
     @FXML
-    private Label timerClock, startLabel, statLabel, settingLabel;
+    private Label titleLabel, timerClock, startLabel, statLabel, settingLabel;
     @FXML
     private Rectangle skipButton, statButton, settingButton, background;
     private Timeline timeline;
@@ -51,11 +51,6 @@ public class TimerController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Disable the skip button
-        skipButton.setDisable(true);
-        skipButton.setOpacity(0.8);
-        // Sets the timerClock label at beginning
-        timerClock.setText(secondsToHMS(studyTime));
         // Read config file
         try {
             FileInputStream config = new FileInputStream("src/main/resources/config.properties");
@@ -78,6 +73,12 @@ public class TimerController implements Initializable {
             projectorPlayer = new MediaPlayer(projectorSound);
             Media alarmSound = new Media(Objects.requireNonNull(getClass().getResource("/sounds/" + prop.getProperty("alarmType") + ".mp3")).toExternalForm());
             alarmPlayer = new MediaPlayer(alarmSound);
+            // Disable the skip button
+            skipButton.setDisable(true);
+            skipButton.setOpacity(0.8);
+            // Sets the timerClock label and title label at beginning
+            timerClock.setText(secondsToHMS(studyTime));
+            titleLabel.setText("Welcome, " + prop.getProperty("name").replace("\"", ""));
         } catch (IOException e) {
             e.printStackTrace();
         }

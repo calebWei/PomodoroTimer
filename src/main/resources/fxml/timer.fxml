@@ -22,6 +22,6 @@
       <Rectangle fx:id="settingButton" arcHeight="20.0" arcWidth="20.0" fill="DODGERBLUE" height="57.0" layoutX="572.0" layoutY="557.0" onMouseClicked="#onSettings" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="pRectangle" width="210.0" />
       <Label fx:id="settingLabel" alignment="CENTER" layoutX="572.0" layoutY="557.0" mouseTransparent="true" prefHeight="58.0" prefWidth="210.0" styleClass="rLabel" text="Settings" textFill="WHITE" />
       <Rectangle arcHeight="10.0" arcWidth="10.0" fill="DODGERBLUE" height="58.0" layoutX="190.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="tRectangle" width="588.0" />
-      <Label fx:id="titleLabel" alignment="CENTER" layoutX="284.0" layoutY="29.0" mouseTransparent="true" prefHeight="66.0" prefWidth="400.0" styleClass="tLabel" text="Welcome, Caleb!" textFill="WHITE" />
+      <Label fx:id="titleLabel" alignment="CENTER" layoutX="190.0" layoutY="29.0" mouseTransparent="true" prefHeight="66.0" prefWidth="588.0" styleClass="tLabel" text="Welcome, Caleb!" textFill="WHITE" />
    </children>
 </AnchorPane>

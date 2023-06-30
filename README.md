@@ -1,8 +1,8 @@
 # PomodoroTimer (WIP)
-Personal project inspired by [Pomofocus](https://pomofocus.io/)
+Personal Javafx project inspired by [Pomofocus](https://pomofocus.io/)
 
-- Written in Javafx
 - Functions as a customizable timer for the pomodoro study/work technique.
+- Focus on satisfying interaction and customizability
 - Local offline application.
 - Looking to implement statistics, and more customizable features in the future.
 
